@@ -1,10 +1,9 @@
 version: 2.1
 
 jobs:
-  test:
+  test-no-parallelism:
     docker:
       - image: cimg/node:15.1
-    parallelism: 2
     steps:
       - checkout
       - restore_cache:
@@ -46,5 +45,5 @@ jobs:
 workflows:
   orb-free-workflow:
     jobs:
-      - test
+      - test-no-parallelism
       - simplest-test-defined-in-jobs
